@@ -7,6 +7,10 @@ app:
         status: off
         pemPath: cert/server.pem
         keyPath: cert/server.key
+    cors:
+      enabled: true
+      origins:
+        - http://localhost:9000
 
 log:
     level: info

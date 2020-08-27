@@ -73,6 +73,9 @@ func main() {
 
 	r := gin.Default()
 	r.Use(middleware.Correlation())
+	if viper.GetBool("app.cors.enabled") {
+		r.Use(middleware.Cors())
+	}
 	r.Use(middleware.Auth())
 	r.Use(middleware.Logger())
 	r.GET("/", controller.Index)
